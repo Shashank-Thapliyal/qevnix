@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #fbf8f3;
+  --color-surface: #f4efe6;
+  --color-line: #e2d9cc;
+  --color-ink: #3c2a21;
+  --color-muted: #6b5b52;
+  --color-forecast: #c85a32;
+  --color-actual: #2d5a27;
+  --color-risk: #b45309;
+  --color-data: #1c1917;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+body {
+  @apply bg-canvas text-data font-sans antialiased;
+}
