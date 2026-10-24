@@ -12,10 +12,16 @@ load_dotenv()
 
 app = FastAPI(title="Wind Forecast API")
 
+cors_origins_env = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000")
+allowed_origins = ["*"] if cors_origins_env.strip() == "*" else [
+    origin.strip() for origin in cors_origins_env.split(",") if origin.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
-    allow_methods=["GET"],
+    allow_origins=allowed_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
